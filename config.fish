@@ -1,0 +1,10 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+set -g fish_prompt_pwd_dir_length 0
+
+function fish_title
+    set -q argv[1]; or set argv (fish_prompt_pwd_dir_length=0 prompt_pwd);
+    echo $argv
+end
